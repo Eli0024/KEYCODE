@@ -1,46 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOM JS</title>
+    <title>Efecto Máquina de Escribir</title>
     <style>
-        body{
-            background-color: #252525;
+        body {
+            background-color: #1d86a0;
             color: white;
             margin: 5rem;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
         }
-        .parrafo1{
+        .parrafo1 {
             font-size: 25px;
-            color: yellow;
+            color: rgb(19, 61, 90);
             font-weight: bold;
+            margin-bottom: 2rem;
         }
-        button{
-            padding:  2rem;
-            border-radius: 1 rem;
+        button {
+            padding: 1rem 2rem;
+            border-radius: 1rem;
             font-size: 20px;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            background-color: #444;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #666;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Manipulacion del DOM con JS</h1>
-        <p id="mi parrafo" class="parrafo1">Este es el texto original</p>
+        <h1>Manejo de DOM en JS</h1>
+        <p id="miParrafo" class="parrafo1">Haz clic en el botón para ver el efecto</p>
     </header>
     <section>
-        <button id="miBoton">Haz clic en mi</button>
+        <button id="miBoton">Haz clic en mí</button>
     </section>
 
     <script>
         const boton = document.getElementById("miBoton");
-        const parrafo = document.getElementById("mi parrafo");
-        boton.addEventListener("click", function{} [
-            parrafo.innerHTML = 'Este es el texto nuevo' + texto
+        const parrafo = document.getElementById("miParrafo");
+        const mensaje = "¡Bienvenido a la demostración del efecto máquina de escribir!";
+        let index = 0;
 
-            parrafo.style.color = 'blue'
-            parrafo.style.fontSize = '38px'
-        ]);
-  
-  </script>
+        boton.addEventListener("click", function() {
+            parrafo.innerHTML = ''; // Limpia el párrafo
+            escribirTexto();
+        });
+
+        function escribirTexto() {
+            if (index < mensaje.length) {
+                parrafo.innerHTML += mensaje.charAt(index);
+                index++;
+                setTimeout(escribirTexto, 100); // Ajusta la velocidad aquí
+            }
+        }
+    </script>
 </body>
 </html>
