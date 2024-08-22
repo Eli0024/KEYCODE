@@ -83,9 +83,9 @@ export const Selects = () => {
       {info && (
         <div>
           <h3>Información del Municipio</h3>
-          <p>Población: {info.population}</p>
-          <p>Código Postal: {info.postal_code}</p>
-          <p>Región: {info.region}</p>
+          <p>Nombre: {info.name}</p>
+          <p>Poblacion: {info.population}</p>
+          <p>Codigo Postal: {info.postalCode}</p>
         </div>
       )}
     </div>
