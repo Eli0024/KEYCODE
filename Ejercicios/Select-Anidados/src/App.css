@@ -1,22 +1,38 @@
-.select-list-container {
-    margin-bottom: 20px;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    text-align: center;
+    font-size: 2rem;
+    background: linear-gradient(135deg, #e756ec, #2499f8); 
+    width: 50%;
+    height: 130vh;
+    margin: 40px auto; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.container-select {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
 }
 .label-select {
-    display: block;
     font-size: 1rem;
     font-weight: bold;
-    margin-bottom: 8px; 
-    color: #333; 
+    margin-bottom: 8px;
+    color: #333;
 }
 select {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1rem;
     background-color: #fff;
     color: #333;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 select:focus {
@@ -25,5 +41,5 @@ select:focus {
     outline: none;
 }
 option {
-    padding: 10px;
+    font-size: 1rem;
 }
