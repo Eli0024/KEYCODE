@@ -1,12 +1,18 @@
-import Navbar from './componentes/Navbar'
+import Navbar from "./componentes/Navbar";
+import Services from "./componentes/Services";
+import Welcome from "./componentes/Welcome";
 
 function App() {
-  
   return (
     <>
-      <Navbar/>
+      {/* Navbar Component */}
+      <Navbar />
+      {/* Seccion Bienvenida component */}
+      <Welcome />
+      {/* Services component */}
+      <Services/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
