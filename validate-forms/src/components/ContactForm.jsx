@@ -1,7 +1,7 @@
 import React from "react";
 import { useForms } from "../hooks/useForms";
-import { Loader } from './Loader';
-import Mail from './Mail';
+import { Loader } from "./Loader";
+import Mail from "./Mail";
 
 //Valores por defecto para el formulario
 const valorDefecto = {
@@ -45,89 +45,113 @@ const validaciones = (form) => {
 
 const ContactForm = () => {
   //Llamado a nuestro custom hook recibiendo mis variables y mis funciones
-  const { form, errores, cargando, bd, respuesta, manejadorCambios, manejadorSalidaInput, enviarFormulario } = useForms(
-    valorDefecto,
-    validaciones
-  );
-  
+  const {
+    form,
+    errores,
+    cargando,
+    bd,
+    respuesta,
+    manejadorCambios,
+    manejadorSalidaInput,
+    enviarFormulario,
+  } = useForms(valorDefecto, validaciones);
+
   return (
     <>
-    <div div className="contact-form-container">
-      <h1>Formulario de contacto</h1>
-      {/* con el evento onSubmit ejecutamos una funcion cuando se envia el formulario */}
-      <form onSubmit={enviarFormulario} className="contact-form">
-        {/* Nombre */}
-        <div className="form-group">
-        <label htmlFor="nombre">Nombre</label>
-        <br></br>
-        <input className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" 
-          type="text"
-          name="nombre"
-          placeholder="Escribe tu nombre..."
-          // required
-          value={form.nombre}
-          onChange={manejadorCambios}
-          onBlur={manejadorSalidaInput}
-        />
-        {/* Muestra la etiqueta p con el error solo si tiene un error en nombre */}
-        {errores.nombre && <p className="p-error">{errores.nombre}</p>}
-        </div>
-        {/* Email */}
-        <div className="mb-2 text-xl font-medium text-center">
-          <label htmlFor="email">Email</label>
-        <input className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-          type="email"
-          name="email"
-          placeholder="Escribe tu correo electronico..."
-          // required
-          value={form.email}
-          onChange={manejadorCambios}
-          onBlur={manejadorSalidaInput}
-        />
-        {/* Muestra la etiqueta p con el error solo si tiene un error en email */}
-        {errores.email && <p className="p-error">{errores.email}</p>}
-        </div>
-        {/* Asunto */}
-        <div className="form-group">
-          <label htmlFor="asunto">Asunto</label>
-        <input
-          type="text"
-          name="asunto"
-          placeholder="Asunto..."
-          // required
-          value={form.asunto}
-          onChange={manejadorCambios}
-          onBlur={manejadorSalidaInput}
-        />
-        {/* Muestra la etiqueta p con el error solo si tiene un error en asunto */}
-        {errores.asunto && <p className="p-error">{errores.asunto}</p>}
-        </div>
-        {/* Observaciones */}
-        <div className="form-group">
-        <label htmlFor="observaciones">Observaciones</label>
-        <textarea className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
-          name="observaciones"
-          placeholder="Escribe tus observaciones..."
-          // required
-          cols={50}
-          rows={5}
-          value={form.observaciones}
-          onChange={manejadorCambios}
-          onBlur={manejadorSalidaInput}
-        />
-        {/* Muestra la etiqueta p con el error solo si tiene un error en observaciones */}
-        {errores.observaciones && (
-          <p className="p-error">{errores.observaciones}</p>
-        )}
-        </div>
-        {/* Button que envia el formulario */}
-        <div className="mb-2 text-xl font-bold text-center">
-        <input type="submit" value="Enviar"  disabled={cargando} className={cargando ? 'deshabilitado' : ''} />
-        </div>
-      </form>
-      {/* Si cargando es True renderiza <Loader/> */}
-      {cargando && <Loader/>}
-      {respuesta && <Mail datos={bd}/>}
+      <div
+        div
+        className="container mx-auto px-4 py-8  bg-white rounded-xl max-w-sm"
+      >
+        <h1 className="mb-2 text-xl font-medium text-center pb-6">
+          FORMULARIO DE CONTACTO
+        </h1>
+        {/* con el evento onSubmit ejecutamos una funcion cuando se envia el formulario */}
+        <form onSubmit={enviarFormulario} className="contact-form">
+          {/* Nombre */}
+          <div className="mb-2 text-xl font-medium text-center">
+            <label htmlFor="nombre">Nombre</label>
+            <br></br>
+            <input
+              className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+              type="text"
+              name="nombre"
+              placeholder="Escribe tu nombre..."
+              // required
+              value={form.nombre}
+              onChange={manejadorCambios}
+              onBlur={manejadorSalidaInput}
+            />
+            {/* Muestra la etiqueta p con el error solo si tiene un error en nombre */}
+            {errores.nombre && <p className="p-error">{errores.nombre}</p>}
+          </div>
+          {/* Email */}
+          <div className="mb-2 text-xl font-medium text-center">
+            <label htmlFor="email">Email</label>
+            <input
+              className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+              type="email"
+              name="email"
+              placeholder="Escribe tu correo electronico..."
+              // required
+              value={form.email}
+              onChange={manejadorCambios}
+              onBlur={manejadorSalidaInput}
+            />
+            {/* Muestra la etiqueta p con el error solo si tiene un error en email */}
+            {errores.email && <p className="p-error">{errores.email}</p>}
+          </div>
+          {/* Asunto */}
+          <div className="mb-2 text-xl font-medium text-center">
+            <label htmlFor="asunto">Asunto</label>
+            <input
+              className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+              type="text"
+              name="asunto"
+              placeholder="Asunto..."
+              // required
+              value={form.asunto}
+              onChange={manejadorCambios}
+              onBlur={manejadorSalidaInput}
+            />
+            {/* Muestra la etiqueta p con el error solo si tiene un error en asunto */}
+            {errores.asunto && <p className="p-error">{errores.asunto}</p>}
+          </div>
+          {/* Observaciones */}
+          <div className="mb-2 text-xl font-medium text-center">
+            <label htmlFor="observaciones">Observaciones</label>
+            <textarea
+              className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+              name="observaciones"
+              placeholder="Escribe tus observaciones..."
+              // required
+              cols={50}
+              rows={5}
+              value={form.observaciones}
+              onChange={manejadorCambios}
+              onBlur={manejadorSalidaInput}
+            />
+            {/* Muestra la etiqueta p con el error solo si tiene un error en observaciones */}
+            {errores.observaciones && (
+              <p className="p-error">{errores.observaciones}</p>
+            )}
+          </div>
+          {/* Button que envia el formulario */}
+          <div className="mb-2 text-xl font-bold text-center">
+            <input
+              type="submit"
+              value="Enviar"
+              disabled={cargando}
+              className={`px-4 py-2 text-white font-bold rounded ${
+                cargando
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-blue-500 hover:bg-blue-700 cursor-pointer"
+              }`}
+            />
+          </div>
+        </form>
+        {/* Si cargando es True renderiza <Loader/> */}
+        {cargando && <Loader />}
+        {respuesta && <Mail datos={bd} />}
       </div>
     </>
   );
