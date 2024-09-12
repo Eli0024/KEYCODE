@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.myLogo {
+    font-weight: bold;
+  }
+  
+  /** Tailwind en CSS y combinado con CSS nativo */
+  .myNav {
+    @apply flex items-center justify-between p-4 text-white bg-pink-600;
+    /* color: red; */
+  }
