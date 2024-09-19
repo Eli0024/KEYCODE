@@ -58,9 +58,7 @@ const ContactForm = () => {
 
   return (
     <>
-      <div
-        div
-        className="container mx-auto px-4 py-8  bg-white rounded-xl max-w-sm"
+      <div className="container mx-auto px-4 py-8  bg-white rounded-xl max-w-sm"
       >
         <h1 className="mb-2 text-xl font-medium text-center pb-6">
           FORMULARIO DE CONTACTO
