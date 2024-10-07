@@ -5,19 +5,32 @@ const User = () => {
   const [cargando, setCargando] = useState(true);
 
   const obtenerUsuarios = async () => {
-    try {
+   try {
       const respuesta = await fetch(
-        "https://jsonplaceholder.typicode.com/users"
-      );
-      console.log(respuesta)
-    //   const data = respuesta.json();
-      console.log(data)
-      setUsuarios(data);
-      setCargando(false);
-    } catch (error) {
-      console.error("Hubo un error");
-    }
-  };
+         "https://jsonplaceholder.typicode.com/users"
+       );
+        console.log(respuesta)
+       const data = await respuesta.json()
+        console.log(data)
+       setUsuarios(data)
+       setCargando(false)
+     } catch (error) {
+        console.error("Hubo un error");
+      }
+   };
+
+  // async function obtenerUsuarios () {
+  //   try {
+  //     const respuesta = await fetch("https://jsonplaceholder.typicode.com/users")
+  //     console.log( respuesta);
+  //     const data = await respuesta.json();
+  //     console.log(data);
+  //     setUsuarios(data);
+  //     setCargando(false);
+  // } catch (err) {
+  //   console.log(err);
+  // }
+  // }
 
   useEffect(() => {
     obtenerUsuarios()
@@ -29,11 +42,11 @@ const User = () => {
       return (
         <div>
           <h1>Lista de usuarios</h1>
-          {/* <ul>
+           <ul>
             {usuarios.map((usuario) => (
               <li>{usuario.name}</li>
             ))}
-          </ul> */}
+          </ul> 
         </div>
       );
   }

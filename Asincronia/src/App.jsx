@@ -20,15 +20,24 @@ function App() {
 
 
   // Async Await
-  const obtenerDatos = async () => {
-    try {
-      const respuesta = await fetch("https://jsonplaceholder.typicode.com/todos/1")
-      const data = respuesta.json()
-      console.log(data)
-    } catch (error) {
-      console.log('Again F en el chat')
-    }
-  }
+   const obtenerDatos = async () => {
+     try {
+       const respuesta = await fetch("https://jsonplaceholder.typicode.com/todos/1")
+       const data = await respuesta.json()
+       console.log(data)
+     } catch (error) {
+       console.log('Again F en el chat')
+     }
+   }
+
+  // async function obtenerDatos () {
+  //   try {
+  //     const respuesta = await fetch("https://jsonplaceholder.typicode.com/todos/1")
+  //     console.log( respuesta);
+  // } catch (err) {
+  //   console.log(err);
+  // }
+  // }
 
   return (
     <>
